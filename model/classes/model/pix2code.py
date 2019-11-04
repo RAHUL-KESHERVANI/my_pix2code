@@ -52,7 +52,7 @@ class pix2code(AModel):
 
         decoder = concatenate([encoded_image, encoded_text])
 
-        decoder = Bidirecitonal(LSTM(512, return_sequences=True))(decoder)
+        decoder = Bidirectional(LSTM(512, return_sequences=True))(decoder)
         decoder = Bidirectional(LSTM(512, return_sequences=False))(decoder)
         decoder = Dense(output_size, activation='softmax')(decoder)
 
