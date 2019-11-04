@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+rom __future__ import absolute_import
 __author__ = 'Tony Beltramelli - www.tonybeltramelli.com'
 
 from keras.layers import Input, Dense, Dropout, \
@@ -52,8 +52,8 @@ class pix2code(AModel):
 
         decoder = concatenate([encoded_image, encoded_text])
 
-        decoder = LSTM(512, return_sequences=True)(decoder)
-        decoder = LSTM(512, return_sequences=False)(decoder)
+        decoder = Bidirecitonal(LSTM(512, return_sequences=True))(decoder)
+        decoder = Bidirectional(LSTM(512, return_sequences=False))(decoder)
         decoder = Dense(output_size, activation='softmax')(decoder)
 
         self.model = Model(inputs=[visual_input, textual_input], outputs=decoder)
