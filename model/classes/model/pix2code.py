@@ -55,7 +55,7 @@ class pix2code(AModel):
         decoder = Bidirectional(LSTM(512, return_sequences=True))(decoder)
         decoder = Bidirectional(LSTM(512, return_sequences=False))(decoder)
         decoder = Dense(output_size, activation='softmax')(decoder)
-
+      
         self.model = Model(inputs=[visual_input, textual_input], outputs=decoder)
 
         optimizer = RMSprop(lr=0.0001, clipvalue=1.0)
